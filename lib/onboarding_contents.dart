@@ -12,20 +12,20 @@ class OnBoardingContents {
 
 List<OnBoardingContents> contents = [
   OnBoardingContents(
-    title: "Track Your work and get the result",
+    title: "ANDA Arama Kurtarma",
     image: "assets/images/earthquake1.png",
-    desc: "Remember to keep track of your professional accomplishments.",
+    desc: "Bu uygulama ANDA arama kurtarma sivil toplum kuruluşu için yapılmıştır.",
   ),
   OnBoardingContents(
-    title: "Stay organized with team",
+    title: "ANDA Arama Kurtarma",
     image: "assets/images/earthquake1.png",
     desc:
-        "But understanding the contributions our colleagues make to our teams and companies.",
+        "Bu uygulama ANDA arama kurtarma sivil toplum kuruluşu web sitesinin mobil versiyonudur.",
   ),
   OnBoardingContents(
-    title: "Get notified when work happens",
+    title: "ANDA Arama Kurtarma",
     image: "assets/images/earthquake1.png",
     desc:
-        "Take control of notifications, collaborate live or on your own time.",
+        "Uygulama içinde son gelişen haberlere ulaşabilir ülke çapında oluşmuş son depremleri görüntüleyebilirsiniz.",
   ),
 ];

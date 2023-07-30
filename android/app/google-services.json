@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "189250873172",
+    "project_id": "articulate-fort-238120",
+    "storage_bucket": "articulate-fort-238120.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:189250873172:android:48fde9a351eeba6db84ac1",
+        "android_client_info": {
+          "package_name": "com.example.bthn_test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "189250873172-ci2102hg944akhs4qgs249br169uisih.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFT_8OFbNZ1tpZdh41QTsueCEh1_pMe1o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "189250873172-ci2102hg944akhs4qgs249br169uisih.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

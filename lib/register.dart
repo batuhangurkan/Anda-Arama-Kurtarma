@@ -1,5 +1,7 @@
 import 'package:bthn_test/Pages/yardimagi.dart';
 import 'package:bthn_test/login.dart';
+import 'package:bthn_test/service/auth.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,10 +18,29 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   Tema tema = Tema();
+  TextEditingController _registerMailController = TextEditingController();
+  TextEditingController _registerPasswordController = TextEditingController();
+  TextEditingController _registerPasswordValidController =
+      TextEditingController();
+  final username = '';
+  final password = '';
+  final passwordValid = '';
+  bool visibilityPassword = false;
 
+  AuthService _authService = AuthService();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 148, 23, 14),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_outlined),
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => LoginPage()));
+          },
+        ),
+      ),
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
@@ -29,7 +50,7 @@ class _RegisterPageState extends State<RegisterPage> {
           child: Column(
             children: [
               Container(
-                margin: EdgeInsets.only(top: 70),
+                margin: EdgeInsets.only(top: 10),
                 width: 180,
                 height: 180,
                 child: Container(
@@ -42,15 +63,14 @@ class _RegisterPageState extends State<RegisterPage> {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(100),
                     ),
-                    child: Image.network(
-                        "https://cdn.discordapp.com/attachments/733749607535870034/1076213367926177852/2.png"),
+                    child: Image.asset("assets/images/andaaramakurtarma.png"),
                   ),
                 ),
               ),
               Container(
                 margin: EdgeInsets.only(top: 20),
                 child: Text(
-                  "Kayıt Sayfası,",
+                  "registerPageText".tr().toString(),
                   style: GoogleFonts.righteous(
                     color: Colors.black,
                     fontSize: 40,
@@ -61,20 +81,20 @@ class _RegisterPageState extends State<RegisterPage> {
                 margin: EdgeInsets.only(left: 5),
                 child: RichText(
                     text: TextSpan(
-                        text:
-                            "Bu sayfa yönetici kayıt sayfasıdır. Üyelikler onaya tabii tutulacaktır.",
+                        text: "registerPageDescText".tr().toString(),
                         style:
                             TextStyle(color: Colors.grey[500], fontSize: 13))),
               ),
               Container(
                 decoration: tema.inputBoxDec(),
                 margin:
-                    EdgeInsets.only(top: 30, bottom: 10, right: 10, left: 10),
+                    EdgeInsets.only(top: 25, bottom: 10, right: 10, left: 10),
                 padding:
                     EdgeInsets.only(left: 15, right: 15, top: 5, bottom: 5),
                 child: TextFormField(
+                  controller: _registerMailController,
                   decoration: InputDecoration(
-                      labelText: "E-posta",
+                      labelText: "emailText".tr().toString(),
                       prefixIcon: Icon(Icons.mail_lock_outlined),
                       fillColor: Colors.grey,
                       border: new OutlineInputBorder(
@@ -96,10 +116,21 @@ class _RegisterPageState extends State<RegisterPage> {
                   children: [
                     Expanded(
                       child: TextFormField(
-                        obscureText: true,
+                        controller: _registerPasswordController,
+                        obscureText: visibilityPassword,
                         decoration: InputDecoration(
-                            labelText: "Şifre",
+                            labelText: "passWordText".tr().toString(),
                             prefixIcon: Icon(Icons.key),
+                            suffixIcon: IconButton(
+                              icon: Icon(visibilityPassword
+                                  ? Icons.visibility
+                                  : Icons.visibility_off),
+                              onPressed: () {
+                                setState(() {
+                                  visibilityPassword = !visibilityPassword;
+                                });
+                              },
+                            ),
                             fillColor: Colors.grey,
                             border: new OutlineInputBorder(
                               borderRadius: new BorderRadius.circular(25),
@@ -121,10 +152,22 @@ class _RegisterPageState extends State<RegisterPage> {
                   children: [
                     Expanded(
                       child: TextFormField(
-                        obscureText: true,
+                        controller: _registerPasswordValidController,
+                        obscureText: visibilityPassword,
                         decoration: InputDecoration(
-                            labelText: "Şifre Onay",
+                            labelText:
+                                "passWordTextVerification".tr().toString(),
                             prefixIcon: Icon(Icons.vpn_key_outlined),
+                            suffixIcon: IconButton(
+                              icon: Icon(visibilityPassword
+                                  ? Icons.visibility
+                                  : Icons.visibility_off),
+                              onPressed: () {
+                                setState(() {
+                                  visibilityPassword = !visibilityPassword;
+                                });
+                              },
+                            ),
                             fillColor: Colors.grey,
                             border: new OutlineInputBorder(
                               borderRadius: new BorderRadius.circular(25),
@@ -138,29 +181,78 @@ class _RegisterPageState extends State<RegisterPage> {
                   ],
                 ),
               ),
-              InkWell(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginPage()));
-                },
-                child: Container(
-                  margin: EdgeInsets.only(top: 20),
-                  width: MediaQuery.of(context).size.width / 1.5,
-                  height: 50,
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(colors: [Colors.red, Colors.red]),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Center(
-                      child: Text(
-                    "Kayıt Ol",
-                    style: GoogleFonts.quicksand(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
-                  )),
-                ),
+              Container(
+                width: MediaQuery.of(context).size.width / 1.5,
+                child: ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        Future.delayed(Duration(seconds: 2), () {
+                          _authService
+                              .createPerson(_registerMailController.text,
+                                  _registerPasswordController.text)
+                              .then((value) {
+                            var snackBar = SnackBar(
+                              content: Text("loginSuccesText".tr().toString()),
+                              duration: Duration(seconds: 2, milliseconds: 500),
+                              backgroundColor: Colors.green,
+                            );
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackBar);
+                            Future.delayed(Duration(seconds: 2), () {});
+                            return Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LoginPage()));
+                          });
+                        });
+                        if (_registerMailController.text == '') {
+                          var snackBar = SnackBar(
+                            content: Text(
+                                "Email Alanı boş geçilemez".tr().toString()),
+                            duration: Duration(seconds: 2, milliseconds: 500),
+                            backgroundColor: Colors.red,
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                        } else if (_registerPasswordController.text == '') {
+                          var snackBar = SnackBar(
+                            content: Text(
+                                "Şifre Alanı boş geçilemez".tr().toString()),
+                            duration: Duration(seconds: 2, milliseconds: 500),
+                            backgroundColor: Colors.red,
+                          );
+                        } else if (_registerPasswordValidController.text ==
+                            '') {
+                          var snackBar = SnackBar(
+                            content: Text("Şifre Onay Alanı boş geçilemez"
+                                .tr()
+                                .toString()),
+                            duration: Duration(seconds: 2, milliseconds: 500),
+                            backgroundColor: Colors.red,
+                          );
+                        } else if (_registerMailController.text !=
+                            _registerPasswordValidController) {
+                          var snack = SnackBar(
+                            content: Text("Şifreler Uyuşmuyor"),
+                            duration: Duration(seconds: 2, milliseconds: 500),
+                            backgroundColor: Colors.red,
+                          );
+                        } else if (_registerPasswordController.text.length <
+                            6) {
+                          var snack = SnackBar(
+                            content: Text("Şifre 6 karakterden az olamaz"),
+                            duration: Duration(seconds: 2, milliseconds: 500),
+                            backgroundColor: Colors.red,
+                          );
+                        }
+                      });
+                    },
+                    style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 100.0, vertical: 15.0),
+                      primary: Colors.red,
+                      shape: StadiumBorder(),
+                    ),
+                    child: Text("registerButtonText".tr().toString())),
               ),
               InkWell(
                 onTap: () {
@@ -173,7 +265,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       actions: <Widget>[
                         TextButton(
                             onPressed: () => Navigator.pop(context),
-                            child: Text("Okudunum, Kabul Ediyorum.")),
+                            child: Text("Okudum, Kabul Ediyorum.")),
                         TextButton(
                             onPressed: () {
                               setState(() {
@@ -195,17 +287,17 @@ class _RegisterPageState extends State<RegisterPage> {
                   margin: EdgeInsets.only(top: 40),
                   child: RichText(
                       text: TextSpan(
-                          text:
-                              "Bu uygulama kişisel verilerinizi kaydeder. Detaylar için",
+                          text: "kvkkText".tr().toString(),
                           style:
                               TextStyle(color: Colors.grey[500], fontSize: 11),
                           children: [
                         TextSpan(
-                            text: " KVKK Metnini Okuyun.",
+                            text: "readKvvkText".tr().toString(),
                             style: TextStyle(
-                                color: Colors.blue,
-                                fontSize: 11,
-                                fontWeight: FontWeight.bold))
+                              color: Colors.blue,
+                              fontSize: 11,
+                              fontWeight: FontWeight.bold,
+                            ))
                       ])),
                 ),
               ),
@@ -240,7 +332,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   );
                 },
                 child: Container(
-                  width: MediaQuery.of(context).size.width / 1.0,
+                  width: MediaQuery.of(context).size.width / 1.1,
                   margin: EdgeInsets.only(top: 30),
                   child: RichText(
                       text: TextSpan(

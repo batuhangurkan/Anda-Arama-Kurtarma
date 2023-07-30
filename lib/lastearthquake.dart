@@ -36,7 +36,7 @@ class _LastEarthQuakeState extends State<LastEarthQuake> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       CircularProgressIndicator(
-                        color: Colors.red,
+                        color: Color.fromARGB(255, 148, 23, 14),
                       ),
                       SizedBox(height: 10),
                       Text('Veriler Yükleniyor',
@@ -85,7 +85,9 @@ class _LastEarthQuakeState extends State<LastEarthQuake> {
                         trailing: InkWell(
                           onTap: () {
                             Navigator.pushNamed(
-                                context, '/show-all-earthquakes');
+                              context,
+                              '/show-all-earthquakes',
+                            );
                           },
                           child: Icon(
                             Icons.place,
@@ -101,7 +103,7 @@ class _LastEarthQuakeState extends State<LastEarthQuake> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.red,
+        backgroundColor: Color.fromARGB(255, 148, 23, 14),
         onPressed: () {
           setState(() {
             veriler = GetApi().getApi;

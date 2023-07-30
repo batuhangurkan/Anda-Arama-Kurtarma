@@ -1,6 +1,7 @@
 import 'package:bthn_test/post_detail.dart';
 import 'package:bthn_test/wp-api.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:html/parser.dart';
 
 class WpHomePage extends StatefulWidget {
@@ -11,9 +12,17 @@ class WpHomePage extends StatefulWidget {
 }
 
 class _WpHomePageState extends State<WpHomePage> {
+  Future refresh() {
+    setState(() {
+      fetchWpPosts();
+    });
+    return Future.delayed(Duration(seconds: 2));
+  }
+
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return RefreshIndicator(
+      onRefresh: refresh,
       child: FutureBuilder(
         future: fetchWpPosts(),
         builder: (context, snapshot) {
@@ -28,7 +37,7 @@ class _WpHomePageState extends State<WpHomePage> {
                   children: [
                     Card(
                       child: Padding(
-                        padding: const EdgeInsets.all(15.0),
+                        padding: const EdgeInsets.all(20.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
@@ -49,17 +58,30 @@ class _WpHomePageState extends State<WpHomePage> {
                                             )));
                               },
                               child: Text(
-                                wppost['title']['rendered'],
-                                style: TextStyle(
-                                    fontSize: 22,
+                                parse((wppost['title']['rendered']).toString())
+                                    .documentElement!
+                                    .text,
+                                style: GoogleFonts.poppins(
+                                    fontSize: 25,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black),
                               ),
                             ),
-                            Text(parse(
-                                    (wppost['excerpt']['rendered']).toString())
-                                .documentElement!
-                                .text),
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Colors.grey[300],
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              width: double.infinity,
+                              child: Text(
+                                parse((wppost['excerpt']['rendered'])
+                                        .toString())
+                                    .documentElement!
+                                    .text,
+                                style: GoogleFonts.poppins(
+                                    fontWeight: FontWeight.w400),
+                              ),
+                            ),
                             Text(parse((wppost['date']).toString())
                                 .documentElement!
                                 .text),
@@ -72,9 +94,22 @@ class _WpHomePageState extends State<WpHomePage> {
               },
             );
           }
+          if (snapshot.hasError) {
+            return Text('HATA : ${snapshot.hasError}');
+          }
           return const Center(
-            child: CircularProgressIndicator(
-              color: Colors.red,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircularProgressIndicator(
+                  color: Color.fromARGB(255, 148, 23, 14),
+                ),
+                Padding(padding: EdgeInsets.only(top: 10)),
+                Text(
+                  "Veriler Yükleniyor...",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ],
             ),
           );
         },

@@ -1,0 +1,12 @@
+io.flutter.plugins.deviceinfo.device_info-jetified-annotation-experimental-1.1.0-0 C:\Users\Batuhan\.gradle\caches\transforms-3\3795200b4ef80330da39fee63b1e3f99\transformed\jetified-annotation-experimental-1.1.0\res
+io.flutter.plugins.deviceinfo.device_info-jetified-window-java-1.0.0-beta04-1 C:\Users\Batuhan\.gradle\caches\transforms-3\4f8a10da11d41b9ccabff01515190014\transformed\jetified-window-java-1.0.0-beta04\res
+io.flutter.plugins.deviceinfo.device_info-core-1.6.0-2 C:\Users\Batuhan\.gradle\caches\transforms-3\ae42e6c01585f28a5adeac7499fca147\transformed\core-1.6.0\res
+io.flutter.plugins.deviceinfo.device_info-jetified-window-1.0.0-beta04-3 C:\Users\Batuhan\.gradle\caches\transforms-3\fa8aad42c825af1f34f93ab9a34c8ecb\transformed\jetified-window-1.0.0-beta04\res
+io.flutter.plugins.deviceinfo.device_info-main-4 C:\Users\Batuhan\AppData\Local\Pub\Cache\hosted\pub.dev\device_info-2.0.3\android\src\main\res
+io.flutter.plugins.deviceinfo.device_info-release-5 C:\Users\Batuhan\AppData\Local\Pub\Cache\hosted\pub.dev\device_info-2.0.3\android\src\release\res
+io.flutter.plugins.deviceinfo.device_info-pngs-6 C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\device_info\generated\res\pngs\release
+io.flutter.plugins.deviceinfo.device_info-resValues-7 C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\device_info\generated\res\resValues\release
+io.flutter.plugins.deviceinfo.device_info-rs-8 C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\device_info\generated\res\rs\release
+io.flutter.plugins.deviceinfo.device_info-mergeReleaseResources-9 C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\device_info\intermediates\incremental\release\mergeReleaseResources\merged.dir
+io.flutter.plugins.deviceinfo.device_info-mergeReleaseResources-10 C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\device_info\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+io.flutter.plugins.deviceinfo.device_info-merged_res-11 C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\device_info\intermediates\merged_res\release

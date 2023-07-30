@@ -26,6 +26,8 @@ class DepremModel {
         "status": status,
         "result": List<dynamic>.from(result.map((x) => x.toJson())),
       };
+
+  void forEach(Null Function(dynamic value) param0) {}
 }
 
 class Result {

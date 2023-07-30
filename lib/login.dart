@@ -1,12 +1,20 @@
+import 'package:bthn_test/Pages/alertpage.dart';
 import 'package:bthn_test/Pages/anasayfa/anasayfa.dart';
 import 'package:bthn_test/Pages/anasayfa/anasayfa2.dart';
+import 'package:bthn_test/contants/contants.dart';
+import 'package:bthn_test/onboarding_screen.dart';
 import 'package:bthn_test/register.dart';
+import 'package:bthn_test/resetpassword.dart';
+import 'package:bthn_test/service/auth.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:bthn_test/Themes/ext.dart';
 import 'package:bthn_test/Themes/themes.dart';
+import 'package:bthn_test/contants/contants.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -17,6 +25,15 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   Tema tema = Tema();
+  TextEditingController _usernamecontroller = TextEditingController();
+  TextEditingController _passwordcontroller = TextEditingController();
+  bool visibilityPassword = false;
+  bool isSucess = false;
+  bool isLogin = false;
+  var auth = FirebaseAuth.instance;
+
+  AuthService _authService = AuthService();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,16 +59,15 @@ class _LoginPageState extends State<LoginPage> {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(100),
                     ),
-                    child: Image.network(
-                        "https://cdn.discordapp.com/attachments/733749607535870034/1076213367926177852/2.png"),
+                    child: Image.asset("assets/images/andaaramakurtarma.png"),
                   ),
                 ),
               ),
               Container(
                 margin: EdgeInsets.only(top: 20),
                 child: Text(
-                  "Merhaba,",
-                  style: GoogleFonts.righteous(
+                  "loginText".tr().toString(),
+                  style: GoogleFonts.poppins(
                     color: Colors.black,
                     fontSize: 40,
                   ),
@@ -60,10 +76,9 @@ class _LoginPageState extends State<LoginPage> {
               Container(
                 child: RichText(
                     text: TextSpan(
-                        text:
-                            "Bu sayfa yönetici giriş sayfasıdır. Yönetici olanlar giriş yapabilir.Yönetici değilseniz misafir olarak devam edebilirsiniz.",
-                        style:
-                            TextStyle(color: Colors.grey[500], fontSize: 13))),
+                        text: "loginDescText".tr().toString() ?? 'Hata',
+                        style: GoogleFonts.poppins(
+                            color: Colors.grey[500], fontSize: 12))),
               ),
               Container(
                 decoration: tema.inputBoxDec(),
@@ -72,15 +87,16 @@ class _LoginPageState extends State<LoginPage> {
                 padding:
                     EdgeInsets.only(left: 15, right: 15, top: 5, bottom: 5),
                 child: TextFormField(
+                  controller: _usernamecontroller,
                   decoration: InputDecoration(
-                      labelText: "E-posta",
+                      labelText: "E-mail",
                       prefixIcon: Icon(Icons.local_post_office_outlined),
                       fillColor: Colors.grey,
                       border: new OutlineInputBorder(
                         borderRadius: new BorderRadius.circular(25),
                         borderSide: new BorderSide(),
                       )),
-                  style: GoogleFonts.openSans(
+                  style: GoogleFonts.poppins(
                     color: renk(metin_renk),
                   ),
                 ),
@@ -95,69 +111,117 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     Expanded(
                       child: TextFormField(
-                        obscureText: true,
+                        obscureText: visibilityPassword,
+                        controller: _passwordcontroller,
                         decoration: InputDecoration(
-                            labelText: "Şifre",
+                            labelText: "passWordText".tr().toString(),
                             prefixIcon: Icon(Icons.key),
+                            suffixIcon: IconButton(
+                              icon: Icon(visibilityPassword
+                                  ? Icons.visibility
+                                  : Icons.visibility_off),
+                              onPressed: () {
+                                setState(() {
+                                  visibilityPassword = !visibilityPassword;
+                                });
+                              },
+                            ),
                             fillColor: Colors.grey,
                             border: new OutlineInputBorder(
                               borderRadius: new BorderRadius.circular(25),
                               borderSide: new BorderSide(),
                             )),
-                        style: GoogleFonts.openSans(
+                        style: GoogleFonts.poppins(
                           color: renk(metin_renk),
                         ),
                       ),
-                    ),
+                    )
                   ],
                 ),
               ),
-              InkWell(
-                onTap: () {
-                  Navigator.of(context).pushNamedAndRemoveUntil(
-                      '/home-page', (Route<dynamic> route) => false);
-                },
-                child: Container(
-                  margin: EdgeInsets.only(top: 20),
-                  width: MediaQuery.of(context).size.width / 1.5,
-                  height: 50,
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(colors: [Colors.red, Colors.red]),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Center(
-                      child: Text(
-                    "Giriş Yap",
-                    style: GoogleFonts.quicksand(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
-                  )),
-                ),
+              Container(
+                width: MediaQuery.of(context).size.width / 1.5,
+                child: ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        Future.delayed(Duration(seconds: 2), () {
+                          _authService
+                              .signIn(_usernamecontroller.text,
+                                  _passwordcontroller.text)
+                              .then((value) {
+                            var snackBar = SnackBar(
+                              content: Text("loginSuccesText".tr().toString()),
+                              duration: Duration(seconds: 2, milliseconds: 500),
+                              backgroundColor: Colors.green,
+                            );
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackBar);
+                            Future.delayed(Duration(seconds: 2), () {});
+                            Navigator.of(context).pushNamedAndRemoveUntil(
+                                '/home-page', (Route<dynamic> route) => false);
+                          });
+                        });
+                        if (_usernamecontroller.text == '' &&
+                            _passwordcontroller.text == '') {
+                          var snackBar = SnackBar(
+                            content: Text(
+                                "loginEmptyUserNamePassword".tr().toString()),
+                            duration: Duration(seconds: 2, milliseconds: 500),
+                            backgroundColor: Colors.red,
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                          Future.delayed(Duration(seconds: 2), () {});
+                        } else if (_usernamecontroller.text == '') {
+                          var snackBar = SnackBar(
+                            content: Text("loginEmptyUserName".tr().toString()),
+                            duration: Duration(seconds: 2, milliseconds: 500),
+                            backgroundColor: Colors.red,
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                          Future.delayed(Duration(seconds: 2), () {});
+                        } else if (_passwordcontroller.text == '') {
+                          var snackBar = SnackBar(
+                            content: Text("passwordEmpty".tr().toString()),
+                            duration: Duration(seconds: 2, milliseconds: 500),
+                            backgroundColor: Colors.red,
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                          Future.delayed(Duration(seconds: 2), () {});
+                        }
+                      });
+                    },
+                    style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 100.0, vertical: 15.0),
+                      primary: Color.fromARGB(255, 148, 23, 14),
+                      shape: StadiumBorder(),
+                    ),
+                    child: Text("loginButtonText".tr().toString())),
               ),
-              InkWell(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()));
-                },
+              Padding(
+                padding: const EdgeInsets.only(top: 20),
                 child: Container(
-                  margin: EdgeInsets.only(top: 20),
                   width: MediaQuery.of(context).size.width / 1.5,
-                  height: 50,
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(colors: [Colors.red, Colors.red]),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Center(
-                      child: Text(
-                    "Misafir Olarak Devam Et",
-                    style: GoogleFonts.quicksand(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
-                  )),
+                  child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).pushNamedAndRemoveUntil(
+                            '/home-page-guest',
+                            (Route<dynamic> route) => false);
+                        var snackBar = SnackBar(
+                          content: Text("loginSuccesGuestText".tr().toString()),
+                          duration: Duration(seconds: 2, milliseconds: 500),
+                          backgroundColor: Colors.green,
+                        );
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                        Future.delayed(Duration(seconds: 2), () {});
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 70.0, vertical: 15.0),
+                        primary: Color.fromARGB(255, 148, 23, 14),
+                        shape: StadiumBorder(),
+                      ),
+                      child: Text("loginGuestButtonText".tr().toString())),
                 ),
               ),
               InkWell(
@@ -169,15 +233,39 @@ class _LoginPageState extends State<LoginPage> {
                   margin: EdgeInsets.only(top: 60),
                   child: RichText(
                       text: TextSpan(
-                          text: "Hesabınız yok mu?",
-                          style:
-                              TextStyle(color: Colors.grey[500], fontSize: 15),
+                          text: "dontHaveAccountText".tr().toString(),
+                          style: GoogleFonts.poppins(
+                              color: Colors.grey[500], fontSize: 12),
                           children: [
                         TextSpan(
-                            text: " Kayıt olun!",
+                            text: "registerNowText".tr().toString(),
                             style: TextStyle(
                                 color: Colors.blue,
-                                fontSize: 15,
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold))
+                      ])),
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ResetPasswordPage()));
+                },
+                child: Container(
+                  margin: EdgeInsets.only(top: 25),
+                  child: RichText(
+                      text: TextSpan(
+                          text: "Şifrenizi mi unuttunuz? ",
+                          style: GoogleFonts.poppins(
+                              color: Colors.grey[500], fontSize: 12),
+                          children: [
+                        TextSpan(
+                            text: "Şifremi sıfırla",
+                            style: TextStyle(
+                                color: Colors.blue,
+                                fontSize: 12,
                                 fontWeight: FontWeight.bold))
                       ])),
                 ),

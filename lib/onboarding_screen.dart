@@ -31,7 +31,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         borderRadius: BorderRadius.all(
           Radius.circular(50),
         ),
-        color: Colors.red,
+        color: Color.fromARGB(255, 148, 23, 14),
       ),
       margin: const EdgeInsets.only(right: 5),
       height: 10,
@@ -120,7 +120,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             },
                             child: const Text("BAŞLAYALIM!"),
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.red,
+                              backgroundColor: Color.fromARGB(255, 148, 23, 14),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(50),
                               ),
@@ -164,7 +164,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                 },
                                 child: const Text("İlerle"),
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.red,
+                                  backgroundColor:
+                                      Color.fromARGB(255, 148, 23, 14),
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(50),
                                   ),

@@ -45,11 +45,22 @@ dependencies:
   easy_search_bar: ^2.4.2
   http: ^0.13.5
   html:
-  google_maps_flutter: ^2.2.5
   shared_preferences: ^2.1.0
   onboarding: ^3.1.0
   url_launcher: ^6.1.10
-  google_maps_flutter_ios: ^2.2.1
+  flutter_map: ^3.1.0
+  latlong2: ^0.8.1
+  flutter_launcher_icons: ^0.13.1
+  easy_localization: ^3.0.2
+  contactus: ^1.2.3
+  device_info_plus: ^9.0.2
+  firebase_auth: ^4.6.3
+  firebase_core: ^2.14.0
+  cloud_firestore: ^4.8.2
+  image_picker: ^1.0.0
+  onesignal_flutter: ^3.5.1
+  platform_device_id: ^1.0.1
+  permission_handler: ^10.4.2
 
 dev_dependencies:
   flutter_test:
@@ -76,6 +87,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
    - assets/images/
+   - assets/translations/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -103,3 +115,8 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/andaaramakurtarma.png"

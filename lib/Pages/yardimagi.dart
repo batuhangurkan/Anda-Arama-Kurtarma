@@ -18,21 +18,17 @@ class _HomeScreenState extends State<HomeScreen> {
   var time = DateTime.now();
 
   @override
-
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red,
+        backgroundColor: Color.fromARGB(255, 148, 23, 14),
         title: Text(
           "Afet Acil Yardım Ağı",
-          style: Theme.of(context)
-              .textTheme
-              .bodySmall!
-              .copyWith(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 25),
+          style: Theme.of(context).textTheme.bodySmall!.copyWith(
+              fontWeight: FontWeight.bold, color: Colors.white, fontSize: 25),
         ),
         elevation: 0,
-        actions: [
-        ],
+        actions: [],
       ),
       extendBody: true,
       body: _buildBody(),
@@ -100,7 +96,10 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('Güncelleme: $time', style: GoogleFonts.openSans(fontSize: 8),),
+            Text(
+              'Güncelleme: $time',
+              style: GoogleFonts.openSans(fontSize: 8),
+            ),
           ],
         ),
         const Spacer(),
@@ -117,7 +116,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ],
     );
   }
-
 
   Row _taskHeader() {
     return Row(
@@ -138,7 +136,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ],
     );
   }
-
 
   StaggeredGrid buildGrid() {
     return StaggeredGrid.count(
@@ -208,9 +205,16 @@ class OnGoingTask extends StatelessWidget {
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget> [
-          Icon(FontAwesomeIcons.circleInfo, size: 25, color: Colors.blue,),
-          Text(" Test Deneme Duyuru!", style: GoogleFonts.openSans(color: Colors.black),)
+        children: <Widget>[
+          Icon(
+            FontAwesomeIcons.circleInfo,
+            size: 25,
+            color: Colors.blue,
+          ),
+          Text(
+            " Test Deneme Duyuru!",
+            style: GoogleFonts.openSans(color: Colors.black),
+          )
         ],
       ),
     );
@@ -224,10 +228,8 @@ class AlarmSound extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(
-            builder: (context) => HomeScreen())
-        );
-
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => HomeScreen()));
       },
       child: Center(
         child: Container(
@@ -235,21 +237,27 @@ class AlarmSound extends StatelessWidget {
           margin: EdgeInsets.only(top: 20),
           height: 50,
           decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [Colors.red,Colors.red]),
+              gradient: LinearGradient(colors: [Colors.red, Colors.red]),
               borderRadius: BorderRadius.circular(10),
               boxShadow: [
                 BoxShadow(
-                    color: Colors.black,
-                    offset: Offset(0, 2),
-                    blurRadius: 5
-                )
-              ]
-          ),
+                    color: Colors.black, offset: Offset(0, 2), blurRadius: 5)
+              ]),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[Icon(FontAwesomeIcons.volumeHigh, size: 20, color: Colors.white,),
-              Text("   Sesini Duyur", style: GoogleFonts.openSans(color: Colors.white, fontSize: 17, fontWeight: FontWeight.bold),),
+            children: <Widget>[
+              Icon(
+                FontAwesomeIcons.volumeHigh,
+                size: 20,
+                color: Colors.white,
+              ),
+              Text(
+                "   Sesini Duyur",
+                style: GoogleFonts.openSans(
+                    color: Colors.white,
+                    fontSize: 17,
+                    fontWeight: FontWeight.bold),
+              ),
             ],
           ),
         ),
@@ -257,10 +265,3 @@ class AlarmSound extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-

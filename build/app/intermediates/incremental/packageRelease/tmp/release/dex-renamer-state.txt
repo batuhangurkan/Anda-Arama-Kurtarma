@@ -1,0 +1,4 @@
+#Fri Jul 14 01:11:21 TRT 2023
+base.0=C\:\\Users\\Batuhan\\Desktop\\Afet-Acil-Durum\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
