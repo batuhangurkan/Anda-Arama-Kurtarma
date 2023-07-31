@@ -47,15 +47,15 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAFT_8OFbNZ1tpZdh41QTsueCEh1_pMe1o',
-    appId: '1:189250873172:android:48fde9a351eeba6db84ac1',
+    apiKey: '',
+    appId: '',
     messagingSenderId: '189250873172',
     projectId: 'articulate-fort-238120',
     storageBucket: 'articulate-fort-238120.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCWAt6v-pmyUJj2ku6WOTQ2Ve7GG3qkPSU',
+    apiKey:'',
     appId: '1:189250873172:ios:a0f43bf8c63df831b84ac1',
     messagingSenderId: '189250873172',
     projectId: 'articulate-fort-238120',
@@ -65,7 +65,7 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCWAt6v-pmyUJj2ku6WOTQ2Ve7GG3qkPSU',
+    apiKey: '',
     appId: '1:189250873172:ios:a0f43bf8c63df831b84ac1',
     messagingSenderId: '189250873172',
     projectId: 'articulate-fort-238120',
