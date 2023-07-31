@@ -129,6 +129,25 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\Batuhan\\Desktop\\Anda-Arama-Kurtarma\\android\\app\\src\\main\\res\\values\\styles.xml",
+                    "from": {
+                        "startLines": "3,14",
+                        "startColumns": "4,4",
+                        "startOffsets": "173,818",
+                        "endLines": "7,16",
+                        "endColumns": "12,12",
+                        "endOffsets": "476,982"
+                    },
+                    "to": {
+                        "startLines": "1491,1495",
+                        "startColumns": "4,4",
+                        "startOffsets": "97093,97274",
+                        "endLines": "1494,1497",
+                        "endColumns": "12,12",
+                        "endOffsets": "97269,97438"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Batuhan\\.gradle\\caches\\transforms-3\\66806a89e8662b6624e8aa4cb1f0a120\\transformed\\media-1.0.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,5,6,7,8,10,11,12,13,14",
@@ -143,23 +162,6 @@
                         "startOffsets": "5587,15094,15147,15200,15253,118647,118823,118945,119207,119402",
                         "endColumns": "88,52,52,52,52,65,121,60,65,66",
                         "endOffsets": "5671,15142,15195,15248,15301,118708,118940,119001,119268,119464"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Batuhan\\Desktop\\Afet-Acil-Durum\\build\\app\\generated\\res\\google-services\\debug\\values\\values.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "55,199,281,385,494,614,720",
-                        "endColumns": "143,81,103,108,119,105,82",
-                        "endOffsets": "194,276,380,489,609,715,798"
-                    },
-                    "to": {
-                        "startLines": "367,372,373,374,375,376,386",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "24961,25402,25484,25588,25697,25817,26798",
-                        "endColumns": "143,81,103,108,119,105,82",
-                        "endOffsets": "25100,25479,25583,25692,25812,25918,26876"
                     }
                 },
                 {
@@ -290,22 +292,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Batuhan\\Desktop\\Afet-Acil-Durum\\android\\app\\src\\main\\res\\values\\styles.xml",
+                    "source": "C:\\Users\\Batuhan\\Desktop\\Anda-Arama-Kurtarma\\build\\app\\generated\\res\\google-services\\debug\\values\\values.xml",
                     "from": {
-                        "startLines": "3,14",
-                        "startColumns": "4,4",
-                        "startOffsets": "173,818",
-                        "endLines": "7,16",
-                        "endColumns": "12,12",
-                        "endOffsets": "476,982"
+                        "startLines": "2,3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "55,199,281,385,494,614,720",
+                        "endColumns": "143,81,103,108,119,105,82",
+                        "endOffsets": "194,276,380,489,609,715,798"
                     },
                     "to": {
-                        "startLines": "1491,1495",
-                        "startColumns": "4,4",
-                        "startOffsets": "97093,97274",
-                        "endLines": "1494,1497",
-                        "endColumns": "12,12",
-                        "endOffsets": "97269,97438"
+                        "startLines": "367,372,373,374,375,376,386",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "24961,25402,25484,25588,25697,25817,26798",
+                        "endColumns": "143,81,103,108,119,105,82",
+                        "endOffsets": "25100,25479,25583,25692,25812,25918,26876"
                     }
                 },
                 {

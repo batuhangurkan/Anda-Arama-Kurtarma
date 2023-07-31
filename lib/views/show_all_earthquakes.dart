@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:bthn_test/lastearthquake.dart';
+import 'package:bthn_test/Pages/lastearthquake.dart';
 import 'package:bthn_test/models/deprem_model.dart';
 import 'package:bthn_test/service/user_service.dart';
 import 'package:flutter/material.dart';

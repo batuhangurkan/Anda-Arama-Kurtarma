@@ -1,16 +1,16 @@
-import 'package:bthn_test/lastearthquake.dart';
-import 'package:bthn_test/login.dart';
-import 'package:bthn_test/newpostpage.dart';
-import 'package:bthn_test/profile.dart';
-import 'package:bthn_test/search.dart';
+import 'package:bthn_test/Pages/lastearthquake.dart';
+import 'package:bthn_test/Pages/login.dart';
+import 'package:bthn_test/Pages/newpostpage.dart';
+import 'package:bthn_test/Pages/profile.dart';
+import 'package:bthn_test/Pages/search.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:bthn_test/wp-api.dart';
+import 'package:bthn_test/Pages/wp-api.dart';
 import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' show parse;
 
-import '../../../home_page.dart';
-import '../../../settings.dart';
+import '../home_page.dart';
+import '../settings.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);

@@ -13,8 +13,8 @@
 13         to allow setting breakpoints, to provide hot reload, etc.
 14    -->
 15    <uses-permission android:name="android.permission.INTERNET" />
-15-->C:\Users\Batuhan\Desktop\Afet-Acil-Durum\android\app\src\main\AndroidManifest.xml:3:6-67
-15-->C:\Users\Batuhan\Desktop\Afet-Acil-Durum\android\app\src\main\AndroidManifest.xml:3:23-65
+15-->C:\Users\Batuhan\Desktop\Anda-Arama-Kurtarma\android\app\src\main\AndroidManifest.xml:3:6-67
+15-->C:\Users\Batuhan\Desktop\Anda-Arama-Kurtarma\android\app\src\main\AndroidManifest.xml:3:23-65
 16    <!-- Create a unique permission for your app and use it so only your app can receive your OneSignal messages. -->
 17    <permission
 17-->[com.onesignal:OneSignal:4.8.5] C:\Users\Batuhan\.gradle\caches\transforms-3\a6c338285975bdbe8c3bba0953fadec3\transformed\jetified-OneSignal-4.8.5\AndroidManifest.xml:7:5-9:47
@@ -163,31 +163,31 @@
 104            android:value="2" />
 105
 106        <service
-106-->[:cloud_firestore] C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
+106-->[:cloud_firestore] C:\Users\Batuhan\Desktop\Anda-Arama-Kurtarma\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
 107            android:name="com.google.firebase.components.ComponentDiscoveryService"
-107-->[:cloud_firestore] C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:10:18-89
+107-->[:cloud_firestore] C:\Users\Batuhan\Desktop\Anda-Arama-Kurtarma\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:10:18-89
 108            android:directBootAware="true"
 108-->[com.google.firebase:firebase-common:20.3.2] C:\Users\Batuhan\.gradle\caches\transforms-3\7c67cb1107658111bdfb744d9b4eec58\transformed\jetified-firebase-common-20.3.2\AndroidManifest.xml:34:13-43
 109            android:exported="false" >
 109-->[com.google.firebase:firebase-auth:22.0.0] C:\Users\Batuhan\.gradle\caches\transforms-3\070ea7b6a46d7e6c99abba4ed539bd51\transformed\jetified-firebase-auth-22.0.0\AndroidManifest.xml:68:13-37
 110            <meta-data
-110-->[:cloud_firestore] C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
+110-->[:cloud_firestore] C:\Users\Batuhan\Desktop\Anda-Arama-Kurtarma\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
 111                android:name="com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar"
-111-->[:cloud_firestore] C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-134
+111-->[:cloud_firestore] C:\Users\Batuhan\Desktop\Anda-Arama-Kurtarma\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-134
 112                android:value="com.google.firebase.components.ComponentRegistrar" />
-112-->[:cloud_firestore] C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
+112-->[:cloud_firestore] C:\Users\Batuhan\Desktop\Anda-Arama-Kurtarma\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
 113            <meta-data
-113-->[:firebase_auth] C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
+113-->[:firebase_auth] C:\Users\Batuhan\Desktop\Anda-Arama-Kurtarma\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
 114                android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
-114-->[:firebase_auth] C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-124
+114-->[:firebase_auth] C:\Users\Batuhan\Desktop\Anda-Arama-Kurtarma\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-124
 115                android:value="com.google.firebase.components.ComponentRegistrar" />
-115-->[:firebase_auth] C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
+115-->[:firebase_auth] C:\Users\Batuhan\Desktop\Anda-Arama-Kurtarma\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
 116            <meta-data
-116-->[:firebase_core] C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
+116-->[:firebase_core] C:\Users\Batuhan\Desktop\Anda-Arama-Kurtarma\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
 117                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
-117-->[:firebase_core] C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-124
+117-->[:firebase_core] C:\Users\Batuhan\Desktop\Anda-Arama-Kurtarma\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-124
 118                android:value="com.google.firebase.components.ComponentRegistrar" />
-118-->[:firebase_core] C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
+118-->[:firebase_core] C:\Users\Batuhan\Desktop\Anda-Arama-Kurtarma\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
 119            <meta-data
 119-->[com.google.firebase:firebase-auth:22.0.0] C:\Users\Batuhan\.gradle\caches\transforms-3\070ea7b6a46d7e6c99abba4ed539bd51\transformed\jetified-firebase-auth-22.0.0\AndroidManifest.xml:69:13-71:85
 120                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
@@ -221,31 +221,31 @@
 134        </service>
 135
 136        <provider
-136-->[:image_picker_android] C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-18:20
+136-->[:image_picker_android] C:\Users\Batuhan\Desktop\Anda-Arama-Kurtarma\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-18:20
 137            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
-137-->[:image_picker_android] C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-82
+137-->[:image_picker_android] C:\Users\Batuhan\Desktop\Anda-Arama-Kurtarma\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-82
 138            android:authorities="com.example.bthn_test.flutter.image_provider"
-138-->[:image_picker_android] C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-74
+138-->[:image_picker_android] C:\Users\Batuhan\Desktop\Anda-Arama-Kurtarma\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-74
 139            android:exported="false"
-139-->[:image_picker_android] C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-37
+139-->[:image_picker_android] C:\Users\Batuhan\Desktop\Anda-Arama-Kurtarma\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-37
 140            android:grantUriPermissions="true" >
-140-->[:image_picker_android] C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-47
+140-->[:image_picker_android] C:\Users\Batuhan\Desktop\Anda-Arama-Kurtarma\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-47
 141            <meta-data
-141-->[:image_picker_android] C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-17:75
+141-->[:image_picker_android] C:\Users\Batuhan\Desktop\Anda-Arama-Kurtarma\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-17:75
 142                android:name="android.support.FILE_PROVIDER_PATHS"
-142-->[:image_picker_android] C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:16:17-67
+142-->[:image_picker_android] C:\Users\Batuhan\Desktop\Anda-Arama-Kurtarma\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:16:17-67
 143                android:resource="@xml/flutter_image_picker_file_paths" />
-143-->[:image_picker_android] C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:17:17-72
+143-->[:image_picker_android] C:\Users\Batuhan\Desktop\Anda-Arama-Kurtarma\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:17:17-72
 144        </provider>
 145
 146        <activity
-146-->[:url_launcher_android] C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-13:74
+146-->[:url_launcher_android] C:\Users\Batuhan\Desktop\Anda-Arama-Kurtarma\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-13:74
 147            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
-147-->[:url_launcher_android] C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-74
+147-->[:url_launcher_android] C:\Users\Batuhan\Desktop\Anda-Arama-Kurtarma\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-74
 148            android:exported="false"
-148-->[:url_launcher_android] C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-37
+148-->[:url_launcher_android] C:\Users\Batuhan\Desktop\Anda-Arama-Kurtarma\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-37
 149            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-149-->[:url_launcher_android] C:\Users\Batuhan\Desktop\Afet-Acil-Durum\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-71
+149-->[:url_launcher_android] C:\Users\Batuhan\Desktop\Anda-Arama-Kurtarma\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-71
 150
 151        <receiver
 151-->[com.onesignal:OneSignal:4.8.5] C:\Users\Batuhan\.gradle\caches\transforms-3\a6c338285975bdbe8c3bba0953fadec3\transformed\jetified-OneSignal-4.8.5\AndroidManifest.xml:50:9-61:20

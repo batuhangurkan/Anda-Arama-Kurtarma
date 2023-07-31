@@ -1,7 +1,7 @@
 import 'package:bthn_test/Pages/anasayfa/testsayfa.dart';
-import 'package:bthn_test/login.dart';
+import 'package:bthn_test/Pages/login.dart';
 import 'package:bthn_test/main.dart';
-import 'package:bthn_test/register.dart';
+import 'package:bthn_test/Pages/register.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:easy_search_bar/easy_search_bar.dart';
 import 'package:flutter/material.dart';
